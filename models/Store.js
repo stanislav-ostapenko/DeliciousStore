@@ -20,10 +20,9 @@ const storeSchema = new mongoose.Schema({
 	tags: [String]
 });
 
-storeSchema.pre('save', (next) => {
+storeSchema.pre('save', function (next) {
 	if (!this.isModified('name')) {
-		next();
-		return;
+		return next();
 	}
 	this.slug = slug(this.name);
 	next();

@@ -1,0 +1,8 @@
+extends layout
+include mixins/_storeCard
+
+block content
+    .inner
+        .stores
+            each store in stores
+                +storeCard(store)
